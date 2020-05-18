@@ -1,0 +1,24 @@
+#!{{pkgPathFor "core/bash"}}/bin/bash
+
+set -e
+exec 2>&1
+
+export HOME={{pkg.svc_var_path}}
+source {{pkg.svc_config_path}}/environment.sh
+
+# need to do some management of the tmp location as by default it will be
+# own by root and needs to be writable by the hab user that runs the web
+# service.
+mkdir -p $RAILS_TMP_PATH
+mkdir -p $RAILS_CACHE_PATH
+mkdir -p $(dirname $PIDFILE)
+
+mv {{pkg.path}}/src/tmp {{pkg.path}}/src/tmp.old
+ln -svf $RAILS_TMP_PATH {{pkg.path}}/src/tmp
+
+# follow the symlink
+chown -RL hab:hab $RAILS_TMP_PATH
+
+# should do some stuff here to make sure this only happens on a single web node
+rails db:create
+rails db:migrate

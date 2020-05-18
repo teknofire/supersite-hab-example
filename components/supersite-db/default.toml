@@ -1,0 +1,26 @@
+# Use this file to templatize your application's native configuration files.
+# See the docs at https://www.habitat.sh/docs/create-packages-configure/.
+# You can safely delete this file if you don't need it.
+[service]
+port = 5432
+host = '0.0.0.0'
+
+[logger]
+level = 'ERROR'
+
+[pg]
+max_connections = 100
+max_locks_per_transaction = 64
+max_wal_size = "1GB"
+min_wal_size = "80MB"
+wal_keep_segments = 32
+checkpoint_timeout = "5mins"
+checkpoint_completion_target = 0.5
+md5_auth_cidr_addresses = ["0.0.0.0/0", "::0/0"]
+ssl_ciphers = "HIGH:+3DES:!aNULL:!eNULL:!EXPORT"
+log_disconnections = "off"
+client_min_messages = "NOTICE"
+
+[superuser]
+name = 'admin'
+password = 'admin'

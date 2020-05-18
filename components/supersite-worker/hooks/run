@@ -1,0 +1,8 @@
+#!{{pkgPathFor "core/bash"}}/bin/bash
+
+set -e
+exec 2>&1
+
+export HOME={{pkg.svc_var_path}}
+
+exec rails qc:work

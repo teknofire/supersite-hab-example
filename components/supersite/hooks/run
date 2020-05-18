@@ -1,0 +1,14 @@
+#!{{pkgPathFor "core/bash"}}/bin/bash
+#
+
+set -e
+exec 2>&1
+
+# This service doesn't do anything so we can setup auto-updates and configs
+echo "Start application null service"
+while true
+do
+  sleep 60
+done
+
+exit 0
