@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/QueueClassic/queue_classic.git
+  revision: b67f971cf7751e7b45e83faeee4f181eafdadfd0
+  branch: master
+  specs:
+    queue_classic (4.0.0.pre.alpha1)
+      pg (>= 0.17, < 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -174,6 +182,8 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
+    tzinfo-data (1.2020.1)
+      tzinfo (>= 1.0.0)
     web-console (4.0.2)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -205,6 +215,7 @@ DEPENDENCIES
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
+  queue_classic!
   rails (~> 6.0.3, >= 6.0.3.1)
   sass-rails (>= 6)
   selenium-webdriver

@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: superwebsite_production
-  username: superwebsite
-  password: <%= ENV['SUPERWEBSITE_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

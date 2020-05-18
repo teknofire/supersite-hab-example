@@ -54,11 +54,11 @@ Rails.application.configure do
   config.log_tags = [ :request_id ]
 
   # Use a different cache store in production.
-  # config.cache_store = :mem_cache_store
+  config.cache_store = :file_store, ENV['RAILS_CACHE_PATH']
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "superwebsite_production"
+  # # config.active_job.queue_name_prefix = "supersite_production"
 
   config.action_mailer.perform_caching = false
 
