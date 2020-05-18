@@ -1,5 +1,13 @@
 # README
 
+This is a quick example repo to show one possible method for setting up a rails app to be deployed using Habitat without needing to duplicate configs or rails application code for each service that is being run.
+
+## Requirements
+
+* Ruby 2.6
+* Rails 6
+* Habitat
+
 ## Layout
 
 The application is setup like a typical Rails application with a couple of exceptions:
@@ -21,6 +29,7 @@ If you have never configured habitat before be sure to follow the instructions a
 ## Building hab packages
 
 ```bash
+cd /path/to/application
 hab studio enter
 build components/yarn
 build components/supersite
